@@ -1,10 +1,12 @@
-var fsx = require('fs.extra'),
+var fs = require('fs'),
+    fsx = require('fs.extra'),
     path = require('path'),
-    outputDir, logoSrc;
+    outputDir, logoSrc, configObj;
 
 function configure(baseDir, config) {
     outputDir = path.join(baseDir, config.output);
     logoSrc = path.join(baseDir, config.icon);
+    configObj = config;
 }
 
 function mergeJekyll(next) {
@@ -34,6 +36,15 @@ function addLogo(next) {
     });
 }
 
+function gitDir(next) {
+    if(configObj.gitdir) {
+        var fd = fs.openSync(outputDir + '/.git', 'w');
+        fs.writeSync(fd, "gitdir: " + configObj.gitdir + "\n");
+        fs.closeSync(fd);
+        next();
+    }
+}
+
 module.exports = configure;
-module.exports.actions = [ mergeJekyll, addLogo ];
+module.exports.actions = [ mergeJekyll, addLogo, gitDir ];
 
