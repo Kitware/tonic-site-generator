@@ -42,6 +42,12 @@ function run(next) {
     });
     walker.on("end", function(){
         files.sort();
+
+        // Remove invalid files
+        while(files[0].indexOf('.js') === -1) {
+            files.shift();
+        }
+
         configObj.ctx.sourceURL = path.basename(files[0], '.js') + '.html';
         docco.document({
             layout      : 'linear',
