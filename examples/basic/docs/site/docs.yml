@@ -1,0 +1,11 @@
+- title: Getting Started
+  docs:
+  - home
+  - quickstart
+  - structure
+
+- title: User guide
+  docs:
+  - configuration
+  - installation
+  - usage

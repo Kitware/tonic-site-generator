@@ -1,0 +1,20 @@
+{
+    "output"    : "www-build",
+    "src"       : "src",
+    "api"       : "docs/api",
+    "doc"       : "docs/site",
+    "news"      : "docs/news",
+    "theme"     : "tonic",
+    "icon"      : "docs/MyProjectLogo.png",
+    "ctx"   : {
+        "title": "Basic example for tonic",
+        "email": "info@kitware.com",
+        "description": "Tools to transform simulation, analysis and visualization.",
+        "baseurl" : "",
+        "url" : "",
+        "twitter_username": "kitware",
+        "github_username": "kitware",
+        "repository": "https://github.com/Kitware/tonic-mouse-handler",
+        "timezone": "America/Denver"
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "tonic-site-generator",
+  "description": "Web site generator/builder for Web projects which rely on Jekyll, mdoc and docco.",
+  "version": "0.0.1",
+  "main": "./src/tonic-site-generator.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kitware/tonic-site-generator.git"
+  },
+  "dependencies": {
+    "handlebars": "latest",
+    "docco"     : "latest",
+    "mdoc"      : "millermedeiros/mdoc#a2f8436",
+    "serve"     : "latest",
+    "fs.extra"  : "latest"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test:basic": "tonic-site-generator examples/basic/tonic-site.json",
+    "posttest:basic": "serve ./examples/basic/www-build"
+  },
+  "bin": {
+    "tonic-site-generator": "./bin/tonic-site-generator-cli.js"
+  }
+}

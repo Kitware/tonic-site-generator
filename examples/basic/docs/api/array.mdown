@@ -1,0 +1,64 @@
+# amd-utils / array #
+
+Array utilities.
+
+
+
+## compact(arr):Array
+
+Returns a new Array without any `null` or `undefined` values. Note that it will
+keep empty strings and other falsy values (simillar to Ruby Array#compact).
+
+```js
+var arr = [0, 1, null, false, '', 'foo', undefined, 'bar'];
+compact(arr); // [0, 1, false, '', 'foo', 'bar'];
+```
+
+
+
+## contains(arr, value):Boolean
+
+Checks if Array contains value. Alias to `indexOf(arr, val) !== -1`.
+
+```js
+var arr = [1, 2, 3];
+contains(arr, 2);      // true
+contains(arr, 'foo');  // false
+```
+
+
+
+## every(arr, callback, [thisObj]):Array
+
+Crossbrowser ES5 `Array.every()`.
+
+Tests whether all elements in the array pass the test implemented by the provided function.
+
+more info at [MDN Array#every](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/every)
+
+
+
+## filter(arr, callback, [thisObj]):Array
+
+Crossbrowser ES5 `Array.filter()`.
+
+Creates a new array with all elements that pass the callback test.
+
+more info at [MDN Array#filter](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/filter)
+
+
+
+## forEach(arr, callback, [thisObj]):void
+
+Crossbrowser ES5 `Array.forEach()`.
+
+more info at [MDN Array#forEach](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach)
+
+
+
+## indexOf(arr, item, [fromIndex]):Number
+
+Crossbrowser ES5 `Array.indexOf()`.
+
+more info at [MDN Array#indexOf](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf)
+
