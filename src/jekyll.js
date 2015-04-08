@@ -33,7 +33,9 @@ function copyJekyllTemplate(next) {
 }
 
 function copyJekyllNews(next) {
-    fsx.copyRecursive(newsDir, outputDir+'/_posts', function(err){
+    var destinationFolder = path.join(outputDir, '_posts');
+    fsx.mkdirpSync(destinationFolder);
+    fsx.copyRecursive(newsDir, destinationFolder, function(err){
         if (err) {
             throw err;
         }
@@ -44,7 +46,9 @@ function copyJekyllNews(next) {
 }
 
 function copyJekyllData(next) {
-    fsx.copy(siteDir + '/docs.yml', outputDir+'/_data/docs.yml', { replace: true }, function(err){
+    var destinationFolder = path.join(outputDir, '_data');
+    fsx.mkdirpSync(destinationFolder);
+    fsx.copy(siteDir + '/docs.yml', destinationFolder+'/docs.yml', { replace: true }, function(err){
         if (err) {
             throw err;
         }
@@ -55,10 +59,12 @@ function copyJekyllData(next) {
 }
 
 function copyJekyllPages(next) {
+    var destinationFolder = path.join(outputDir, '_docs');
+    fsx.mkdirpSync(destinationFolder);
     var walker = fsx.walk(siteDir);
     walker.on("file", function(root, stat, next) {
         if(stat.name !== 'docs.yml') {
-            fsx.copy(path.join(root, stat.name), path.join(outputDir, '_docs', stat.name));        
+            fsx.copy(path.join(root, stat.name), path.join(destinationFolder, stat.name));        
         }
         next();
     });
