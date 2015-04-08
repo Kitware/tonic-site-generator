@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>{{ ctx.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="{{ ctx.baseurl }}/css/main.css">
         <link rel="stylesheet" href="{{root_path}}assets_/css/shCore.css">
         <link rel="stylesheet" href="{{root_path}}assets_/css/shThemeDefault.css">
         <link rel="stylesheet" href="{{root_path}}assets_/css/main.css">
@@ -14,8 +14,8 @@
       
         <div class="wrapper">
       
-          <a class="site-title" href="{{ site.baseurl }}/">
-              <img src="{{ site.baseurl }}/{{ ctx.logo }}" height="40" alt="Logo">
+          <a class="site-title" href="{{ ctx.baseurl }}/">
+              <img src="{{ ctx.baseurl }}/{{ ctx.logo }}" height="40" alt="Logo">
               {{ ctx.title }}
           </a>
       
@@ -29,10 +29,10 @@
             </a>
       
             <div class="trigger">
-              <a class="page-link" href="/">Home</a>
-              <a class="page-link" href="/docs/home">Docs</a>
-              <a class="page-link" href="/news">News</a>
-              <a class="page-link" href="/dev">Dev</a>
+              <a class="page-link" href="{{ ctx.baseurl }}/">Home</a>
+              <a class="page-link" href="{{ ctx.baseurl }}/docs/home">Docs</a>
+              <a class="page-link" href="{{ ctx.baseurl }}/news">News</a>
+              <a class="page-link" href="{{ ctx.baseurl }}/dev">Dev</a>
             </div>
           </nav>
       

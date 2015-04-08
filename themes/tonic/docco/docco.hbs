@@ -13,7 +13,7 @@
   <div class="wrapper">
 
     <a class="site-title" href="/">
-        <img src="/{{ ctx.logo }}" height="40" alt="Logo">
+        <img src="{{ ctx.baseurl }}/{{ ctx.logo }}" height="40" alt="Logo">
         {{ ctx.title }}
     </a>
 
@@ -27,10 +27,10 @@
       </a>
 
       <div class="trigger">
-        <a class="page-link" href="/">Home</a>
-        <a class="page-link" href="/docs/home">Docs</a>
-        <a class="page-link" href="/news">News</a>
-        <a class="page-link" href="/dev">Dev</a>
+        <a class="page-link" href="{{ ctx.baseurl }}/">Home</a>
+        <a class="page-link" href="{{ ctx.baseurl }}/docs/home">Docs</a>
+        <a class="page-link" href="{{ ctx.baseurl }}/news">News</a>
+        <a class="page-link" href="{{ ctx.baseurl }}/dev">Dev</a>
       </div>
     </nav>
 
