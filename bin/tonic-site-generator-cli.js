@@ -15,9 +15,11 @@ var path = require('path'),
 process.argv.forEach(function(val, index, array) {
     if(val === '--local-test') {
         config.baseurl = "";
+        console.log("==> Override baseurl inside configuration to work locally as root");
     }
 });
 
+console.log(config);
 
 // Configure tasks
 resetWeb(baseDir, config);
