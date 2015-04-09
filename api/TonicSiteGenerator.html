@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Site generator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/js-girder-client/css/main.css">
+        <link rel="stylesheet" href="assets_/css/shCore.css">
+        <link rel="stylesheet" href="assets_/css/shThemeDefault.css">
+        <link rel="stylesheet" href="assets_/css/main.css">
+    </head>
+    <body data-root-path="">
+      <header class="site-header">
+      
+        <div class="wrapper">
+      
+          <a class="site-title" href="/js-girder-client/">
+              <img src="/js-girder-client/img/logo.png" height="40" alt="Logo">
+              Site generator
+          </a>
+      
+          <nav class="site-nav">
+            <a href="#" class="menu-icon">
+              <svg viewBox="0 0 18 15">
+                <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+              </svg>
+            </a>
+      
+            <div class="trigger">
+              <a class="page-link" href="/js-girder-client/">Home</a>
+              <a class="page-link" href="/js-girder-client/docs/home">Docs</a>
+              <a class="page-link" href="/js-girder-client/news">News</a>
+              <a class="page-link" href="/js-girder-client/dev">Dev</a>
+            </div>
+          </nav>
+      
+        </div>
+      
+      </header>
+              <div id="wrapper">
+                  <div id="content">
+      
+<ul id="topnav">
+    <li><a href="index.html">Index</a></li>
+    <li><a href="#toc">TOC</a></li>
+</ul>
+<h1>Tonic Site Generator</h1>
+
+<p>The tonic site generator is meant to be use as a command line tool for
+generating the WebSite of your Web project.</p>
+
+<p>The <strong>tonic-site-generator</strong> NodeJS executable expect a single argument which
+is the path to a JSON configuration file listing where to find the different 
+components of your WebSite. </p>
+
+<p>The following JSON structure is an example of what a configuration file
+could looks like:</p>
+
+<pre class="brush:js">
+{
+    "output"    : "docs/www",
+    "src"       : "src",
+    "api"       : "docs/api",
+    "doc"       : "docs/guides",
+    "news"      : "docs/news",
+    "theme"     : "tonic",
+    "icon"      : "docs/images/paper.png",
+    "gitdir"    : "../../.git/modules/docs/www",
+    "ctx"   : {
+        "title": "Web Site Generator for Web projects",
+        "email": "<a href='mailto:info@kitware.com'>info@kitware.com</a>",
+        "description": "Command line tool meant to simplify the generation of documentation threw a complete Web Site",
+        "baseurl" : "/tonic-site-generator",
+        "url" : "",
+        "twitter_username": "kitware",
+        "github_username": "kitware",
+        "repository": "<a href='https://github.com/Kitware/tonic-site-generator'>https://github.com/Kitware/tonic-site-generator</a>",
+        "timezone": "America/Denver"
+    }
+}
+</pre>
+
+<p>The configuration file can be explained as follow where each path should be
+provided as relative to the configuration file.</p>
+
+<ul>
+<li><p><strong>output</strong> : Directory that will be used to generate the static Web Site.</p></li>
+<li><p><strong>src</strong> : Directory that contains the source code that you want to expose 
+      inside the Documentation/source section.</p></li>
+<li><p><strong>api</strong> : Directory that contains Markdown file which describe your code API.
+        This will be process by mdoc where more information can be found 
+        <a href="https://www.npmjs.com/package/mdoc">here</a>.</p></li>
+<li><p><strong>doc</strong> : Directory that contains your site home page and all the guides section.
+        This is going to be process by Jekyll down the road but beneath that
+        directory we expect to see:</p>
+
+<pre><code>    - index.html : Which will be the content of your home page.
+    - docs.yml   : Which will describe the section and groups of your guides.
+    - **/*.md    : Set of pages that will compose your guide section.
+</code></pre></li>
+<li><p><strong>news</strong> : Directory that contains Jekyll posts which will be exposed as your
+         Web site news. Jekyll expect to find within that directory a set of
+         file with the following pattern: "2015-04-10-your-title-goes-here.md"</p></li>
+<li><p><strong>theme</strong> : The name of the Web Site theme that you want to use. Currently we 
+          only have <strong>tonic</strong>.</p></li>
+<li><p><strong>icon</strong> : The file path to an image that should be use as the project icon.</p></li>
+<li><p><strong>gitdir</strong> : OPTIONAL configuration that is useful when the <strong>output</strong> directory
+           is meant to be a Git submodule. This property will be used to generate
+           a ".git" file within the output directory using the providing path
+           for its content.</p></li>
+<li><p><strong>ctx</strong> : Is used across all the templates to provide a consistent set of
+        informations. The mandatory set of property will depend on the Theme
+        used. </p></li>
+</ul>
+
+<h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
+
+<ul>
+<li><a href="#tonic theme">tonic theme</a></li>
+</ul>
+
+<h2>tonic theme <a href="#tonic theme" id="tonic theme" class="deep-link">#</a></h2>
+
+<p>The Tonic theme is made to produce a standardize web site with 4 sections:</p>
+
+<ul>
+<li>An home page</li>
+<li>A Documentation page with 3 sub-sections (Guides, API and Source)</li>
+<li>A News section</li>
+<li>A Development section</li>
+</ul>
+
+<p>The mandatory properties in the <strong>ctx</strong> are:</p>
+
+<ul>
+<li><strong>title</strong>: Web site title (Usually project name)</li>
+<li><strong>email</strong>: email to show on the home page,</li>
+<li><strong>baseurl</strong>: Base url that will be used when your site will be deployed. On Github
+       pages it should be something like /{repo-name}</li>
+<li><strong>repository</strong>: The user to the Github URL.</li>
+</ul>
+            </div>
+        </div>
+        <script src="assets_/js/lib/jquery.js"></script>
+        <script src="assets_/js/lib/syntax-highlighter/shCore.js"></script>
+        <script src="assets_/js/lib/syntax-highlighter/shAutoloader.js"></script>
+        <script src="assets_/js/main.js"></script>
+    </body>
+</html>

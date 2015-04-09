@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Site generator</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="/js-girder-client/css/main.css">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/js-girder-client/">
+        <img src="/js-girder-client/img/logo.png" height="40" alt="Logo">
+        Site generator
+    </a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        <a class="page-link" href="/js-girder-client/">Home</a>
+        <a class="page-link" href="/js-girder-client/docs/home">Docs</a>
+        <a class="page-link" href="/js-girder-client/news">News</a>
+        <a class="page-link" href="/js-girder-client/dev">Dev</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          <h1>task-manager.js</h1>
+        
+
+        
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                <li>
+                  <a class="source" href="docco.html">
+                    docco.js
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="jekyll.html">
+                    jekyll.js
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="mdoc.html">
+                    mdoc.js
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="merge-site.html">
+                    merge-site.js
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="reset-site.html">
+                    reset-site.js
+                  </a>
+                </li>
+              
+                
+                <li>
+                  <a class="source" href="task-manager.html">
+                    task-manager.js
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
+      </div>
+
+      
+        
+        
+        
+          <div class='highlight'><pre><span class="hljs-keyword">var</span> actions = [];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerModuleActions</span><span class="hljs-params">(m)</span> </span>{
+    actions = [].concat(actions, m.actions);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">process</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span>(actions.length &gt; <span class="hljs-number">0</span>) {
+        actions.shift()(process);
+    }
+}
+
+<span class="hljs-built_in">module</span>.exports = {
+    register : registerModuleActions,
+    process  : process
+}</pre></div>
+        
+      
+    </div>
+  </div>
+</body>
+</html>

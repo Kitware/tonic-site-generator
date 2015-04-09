@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Site generator</title>
+    <description>Web site generator for Tonic project suite.</description>
+    <link>/js-girder-client/</link>
+    <atom:link href="/js-girder-client/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 09 Apr 2015 12:53:46 -0600</pubDate>
+    <lastBuildDate>Thu, 09 Apr 2015 12:53:46 -0600</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Tonic Site Generator: Release</title>
+        <description>&lt;p&gt;When thinking of this project we were trying to standardize the look of our
+web projects while providing a better way of documenting them. &lt;/p&gt;
+
+&lt;p&gt;In order to achieve that we build that project to ease and automate the generation
+of a compelling web site for our project.&lt;/p&gt;
+
+&lt;p&gt;This project is still in an early stage but we expect the theme provided to evolve
+and become slicker. &lt;/p&gt;
+
+&lt;p&gt;So be patient and stay tune…&lt;/p&gt;
+</description>
+        <pubDate>Fri, 10 Apr 2015 12:00:00 -0600</pubDate>
+        <link>/js-girder-client/release/2015/04/10/first-usage.html</link>
+        <guid isPermaLink="true">/js-girder-client/release/2015/04/10/first-usage.html</guid>
+        
+        
+        <category>release</category>
+        
+      </item>
+    
+  </channel>
+</rss>
