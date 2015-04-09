@@ -6,7 +6,7 @@
     "news"      : "docs/news",
     "theme"     : "tonic",
     "icon"      : "docs/images/paper.png",
-    "gitdir"    : "../../.git/modules/doc/www/",
+    "gitdir"    : "../../.git/modules/docs/www/",
     "ctx"   : {
         "title": "Site generator",
         "email": "info@kitware.com",
