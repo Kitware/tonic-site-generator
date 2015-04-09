@@ -14,7 +14,7 @@ In order to do so, you will have to prepare your project for it.
 
 Start creating content on a new **gh-pages** branch for your repository.
 
-```sh
+```
 $ cd /.../temporary-dir
 $ git init
 $ git checkout -b gh-pages
@@ -23,7 +23,6 @@ $ git add index.html
 $ git commit -m "Create gh-pages on server"
 $ git remote add origin ${your-github-repository-url}
 $ git push origin gh-pages
-$ git submodule update --init
 ```
 
 After doing so, you will have a new branch **gh-pages** on the server side 
@@ -37,12 +36,13 @@ branch.
 In Tonic suite projects, we like to have **${local-dir-for-web-site}** to be
 **docs/www**.
 
-```sh
+```
 $ cd /.../your-git-repo
 $ git checkout master
 $ git submodule add -b gh-pages ${your-github-repository-url} ${local-dir-for-web-site}
 $ git commit -m "added gh-pages as submodule"
 $ git push origin master
+$ git submodule update --init
 ```
 ## Configure site generator
 
@@ -52,7 +52,7 @@ informations regarding that file [here](/docs/api).
 But since you are using a submodule you should add in your configuration file
 the following path with that file being at the root of your repository.
 
-```js
+```
 {
     "output" : "docs/www",
     "gitdir" : "../../.git/modules/docs/www",
@@ -70,7 +70,7 @@ entry inside your package.json.
 In Tonic suite projects, we tend to add the following one where **site.config.json**
 is our tonic-site-generator configuration file at the root of our repository.
 
-```js
+```
 { // package.json
     "devDependencies": {
         "tonic-site-generator"  : "Kitware/tonic-site-generator",
@@ -85,7 +85,7 @@ is our tonic-site-generator configuration file at the root of our repository.
 
 Then you can install and run the site generator with the following commands:
 
-```sh
+```
 $ npm install
 $ npm run www
 ```
@@ -98,14 +98,14 @@ submodule.
 After making changes in the documentation guides, api, news or source, you can
 generate a new version of your website with the following command:
 
-```sh
+```
 $ npm run www
 ```
 
 At that point, git may have notice some changes within the submodule.
 The best thing to do is go into your submodule and push your changes.
 
-```sh
+```
 # Go to ${local-dir-for-web-site} which is docs/www for Tonic projects
 cd docs/www
 git status
@@ -126,7 +126,7 @@ git push origin HEAD
 You will need to generate your website with an empty baseurl to make it work
 locally but for a first step testing that might be worth.
 
-```sh
+```
 $ npm run www:http
 $ open http://localhost:3000
 ```

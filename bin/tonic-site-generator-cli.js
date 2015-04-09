@@ -19,8 +19,6 @@ process.argv.forEach(function(val, index, array) {
     }
 });
 
-console.log(config);
-
 // Configure tasks
 resetWeb(baseDir, config);
 mdoc(baseDir, config);

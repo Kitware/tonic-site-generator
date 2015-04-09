@@ -2,7 +2,7 @@
 layout: news_item
 title: "Tonic Site Generator: Release"
 date: "2015-04-10 12:00:00"
-author: sebastien.jourdain
+author: jourdain
 version: 0.0.0
 categories: [release]
 ---

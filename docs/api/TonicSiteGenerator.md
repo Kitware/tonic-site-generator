@@ -49,9 +49,9 @@ provided as relative to the configuration file.
             This is going to be process by Jekyll down the road but beneath that
             directory we expect to see:
 
-            -- index.html : Which will be the content of your home page.
-            -- docs.yml : Which will describe the section and groups of your guides.
-            -- **/*.md : Set of pages that will compose your guide section.
+            - index.html : Which will be the content of your home page.
+            - docs.yml   : Which will describe the section and groups of your guides.
+            - **/*.md    : Set of pages that will compose your guide section.
 
 - **news** : Directory that contains Jekyll posts which will be exposed as your
              Web site news. Jekyll expect to find within that directory a set of
@@ -74,14 +74,16 @@ provided as relative to the configuration file.
 ## tonic theme
 
 The Tonic theme is made to produce a standardize web site with 4 sections:
+
 - An home page
 - A Documentation page with 3 sub-sections (Guides, API and Source)
 - A News section
 - A Development section
 
 The mandatory properties in the **ctx** are:
-- title: Web site title (Usually project name)
-- email: email to show on the home page,
-- baseurl: Base url that will be used when your site will be deployed. On Github
+
+- **title**: Web site title (Usually project name)
+- **email**: email to show on the home page,
+- **baseurl**: Base url that will be used when your site will be deployed. On Github
            pages it should be something like /{repo-name}
-- repository: The user to the Github URL.
+- **repository**: The user to the Github URL.

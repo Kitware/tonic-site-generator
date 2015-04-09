@@ -15,7 +15,7 @@
         "url" : "",
         "twitter_username": "kitware",
         "github_username": "kitware",
-        "repository": "https://github.com/Kitware/js-girder-client",
+        "repository": "https://github.com/Kitware/tonic-site-generator",
         "timezone": "America/Denver"
     }
 }
