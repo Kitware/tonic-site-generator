@@ -3,10 +3,10 @@
   <channel>
     <title>Site generator</title>
     <description>Web site generator for Tonic project suite.</description>
-    <link>/js-girder-client/</link>
-    <atom:link href="/js-girder-client/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Apr 2015 12:53:46 -0600</pubDate>
-    <lastBuildDate>Thu, 09 Apr 2015 12:53:46 -0600</lastBuildDate>
+    <link>/tonic-site-generator/</link>
+    <atom:link href="/tonic-site-generator/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 09 Apr 2015 12:56:02 -0600</pubDate>
+    <lastBuildDate>Thu, 09 Apr 2015 12:56:02 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -23,8 +23,8 @@ and become slicker. &lt;/p&gt;
 &lt;p&gt;So be patient and stay tune…&lt;/p&gt;
 </description>
         <pubDate>Fri, 10 Apr 2015 12:00:00 -0600</pubDate>
-        <link>/js-girder-client/release/2015/04/10/first-usage.html</link>
-        <guid isPermaLink="true">/js-girder-client/release/2015/04/10/first-usage.html</guid>
+        <link>/tonic-site-generator/release/2015/04/10/first-usage.html</link>
+        <guid isPermaLink="true">/tonic-site-generator/release/2015/04/10/first-usage.html</guid>
         
         
         <category>release</category>
