@@ -14,7 +14,7 @@ var path = require('path'),
 // Check if we need to override the baseurl
 process.argv.forEach(function(val, index, array) {
     if(val === '--local-test') {
-        config.baseurl = "";
+        config.ctx.baseurl = "";
         console.log("==> Override baseurl inside configuration to work locally as root");
     }
 });
