@@ -11,6 +11,13 @@ var path = require('path'),
     merge = require('../src/merge-site'),
     taskManager = require('../src/task-manager');
 
+// Check if we need to override the baseurl
+process.argv.forEach(function(val, index, array) {
+    if(val === '--local-test') {
+        config.baseurl = "";
+    }
+});
+
 
 // Configure tasks
 resetWeb(baseDir, config);

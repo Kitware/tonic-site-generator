@@ -15,8 +15,11 @@
     "fs.extra"  : "latest"
   },
   "devDependencies": {
+    "tonic-site-generator": "Kitware/tonic-site-generator"
   },
   "scripts": {
+    "www": "tonic-site-generator site.config.json",
+    "www:http": "tonic-site-generator site.config.json --local-test && serve docs/www",
     "test:basic": "tonic-site-generator examples/basic/tonic-site.json",
     "posttest:basic": "serve ./examples/basic/www-build"
   },
