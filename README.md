@@ -1,6 +1,6 @@
-## tonic-site-generator: Web site generator for Web projects.
+## tonic-site-generator
 
-### https://github.com/Kitware/tonic-site-generator
+### Web site generator for Web projects
 
 **tonic-site-generator** is a JavaScript command line tool that let you generate
 and build a complete project web site with its documentation.
@@ -29,7 +29,7 @@ $ open http://localhost:3000
 
 #### Documentation
 
-See the [documentation](https://tonic-site-generator.github.io) for a
+See the [documentation](https://kitware.github.io/tonic-site-generator) for a
 getting started guide, advanced documentation, and API descriptions.
 
 #### Licensing
