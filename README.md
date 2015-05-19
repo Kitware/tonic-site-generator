@@ -34,7 +34,7 @@ getting started guide, advanced documentation, and API descriptions.
 
 #### Licensing
 
-**tonic-site-generator** is licensed under [Apache License 2.0](LICENSE).
+**tonic-site-generator** is licensed under [BSD Clause 3](LICENSE).
 
 #### Getting Involved
 

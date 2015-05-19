@@ -1,0 +1,17 @@
+---
+layout: news
+title: update
+permalink: /news/update/
+author: all
+---
+
+{% for post in site.categories.update %}
+<p>
+<span class="post-category">
+    <span class="label">
+{{ post.date | date_to_string }}
+    </span>
+</span>
+  <a href="{{ post.url }}" class="permalink" title="Permalink"> {{ post.title }}</a>
+</p>
+{% endfor %}

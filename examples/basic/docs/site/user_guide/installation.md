@@ -8,7 +8,7 @@ permalink: /docs/installation/
 
 Getting Tonic installed and ready-to-go should only take a few minutes. If it
 ever becomes a larger time-consuming process, please [file an
-issue]({{ site.repository }}/issues/new) (or submit a pull request)
+issue](https://github.com/{{ site.repository }}/issues/new) (or submit a pull request)
 describing the issue you encountered and how we might make the process easier.
 
 ### Requirements
@@ -46,7 +46,7 @@ $ npm install
 All of Tonic’s dependencies are automatically installed by the above command, so you
 won’t have to worry about them at all. If you have problems installing Tonic, check out
 the [troubleshooting](../troubleshooting/) page or
-[report an issue]({{ site.repository }}/issues/new) so the Tonic community can improve
+[report an issue](https://github.com/{{ site.repository }}/issues/new) so the Tonic community can improve
 the experience for everyone.
 
 <div class="note info">

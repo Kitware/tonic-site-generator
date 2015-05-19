@@ -8,14 +8,17 @@
     "icon"      : "docs/images/paper.png",
     "gitdir"    : "../../.git/modules/docs/www/",
     "ctx"   : {
-        "title": "Site generator",
-        "email": "info@kitware.com",
-        "description": "Web site generator for Tonic project suite.",
+        "title": "Tonic Site Generator",
+        "vision": "Automagic Site Generation",
+        "description": "Automating the generation of Web Project sites with comprehensive documentation.",
+        "details": "",
+        "license": "BSD 3 Clause Open Source",
+        "company": "Kitware, Inc.",
+        "companyURL": "http://www.kitware.com",
         "baseurl" : "/tonic-site-generator",
         "url" : "",
-        "twitter_username": "kitware",
-        "github_username": "kitware",
-        "repository": "https://github.com/Kitware/tonic-site-generator",
-        "timezone": "America/Denver"
+        "repository": "Kitware/tonic-site-generator/",
+        "timezone": "America/Denver",
+        "project": "tonic-site-generator"
     }
 }

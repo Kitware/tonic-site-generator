@@ -1,27 +1,19 @@
-<div class="unit one-fifth hide-on-mobiles">
+<div class="unit one-sixth hide-on-mobiles">
   <aside>
+    <h4>Filters</h4>
     <ul>
       <li class="{% if page.title == 'News' %}current{% endif %}">
         <a href="{{ site.baseurl }}/news/">All News</a>
       </li>
-      <li class="{% if page.title == 'Releases' %}current{% endif %}">
-        <a href="{{ site.baseurl }}/news/releases/">Tonic Releases</a>
-      </li>
-    </ul>
-    <h4>Recent Releases</h4>
-    <ul>
-      {% for post in site.categories.release limit:5 %}
-      <li class="{% if page.title == post.title %}current{% endif %}">
-        <a href="{{ site.baseurl }}{{ post.url }}">Version {{ post.version }}</a>
+      {% for cat in site.categories %}
+      <li class="{% if page.title == cat[0] %}current{% endif %}">
+        <a href="{{ site.baseurl }}/news/{{ cat[0] }}">{{ cat[0] }}</a>
       </li>
       {% endfor %}
-      <li>
-        <a href="{{ site.baseurl }}/docs/history/">History »</a>
-      </li>
     </ul>
-    <h4>Other News</h4>
+    <h4>Latest News</h4>
     <ul>
-        {% for post in site.posts %}
+        {% for post in site.posts  limit:5 %}
         {% unless post.categories contains 'release' %}
         <li class="{% if page.title == post.title %}current{% endif %}">
           <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>

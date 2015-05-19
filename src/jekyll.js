@@ -39,7 +39,7 @@ function copyJekyllNews(next) {
         if (err) {
             throw err;
         }
-     
+
         console.log(" - News");
         next();
     });
@@ -52,7 +52,7 @@ function copyJekyllData(next) {
         if (err) {
             throw err;
         }
-     
+
         console.log(" - Data");
         next();
     });
@@ -68,7 +68,7 @@ function copyJekyllPages(next) {
         } else if(stat.name !== 'docs.yml') {
             fsx.copy(path.join(root, stat.name), path.join(destinationFolder, stat.name));
         }
-        
+
         // Next file not action
         next();
     });
@@ -86,7 +86,7 @@ function generateConfigYML(next) {
         "collections:",
         "  docs:",
         "    output: true",
-        "markdown: kramdown"
+        "markdown: redcarpet"
     ];
     for(var key in configObj.ctx) {
         buffer.push(key + ": " + configObj.ctx[key]);
