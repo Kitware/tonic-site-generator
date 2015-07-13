@@ -9,6 +9,8 @@ function configure(baseDir, config) {
     siteDir = path.join(baseDir, config.doc);
     outputDir = path.join(baseDir, config.output, 'tmp');
     configObj = config;
+
+    [themePath, newsDir, siteDir, outputDir].map(mkdirIfMissing);
 }
 
 function start(next) {
@@ -21,6 +23,12 @@ function end(next) {
     next();
 }
 
+function mkdirIfMissing(folder) {
+    if (!fs.existsSync(folder)){
+        console.log('Folder: ' + folder +' does not exist, creating it...');
+        fs.mkdirSync(folder);
+    }
+}
 
 function copyJekyllTemplate(next) {
     fsx.copyRecursive(themePath + '/jekyll', outputDir, function(err){
