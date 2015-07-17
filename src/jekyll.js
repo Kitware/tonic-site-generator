@@ -73,6 +73,8 @@ function copyJekyllPages(next) {
     walker.on("file", function(root, stat, next) {
         if(stat.name === 'index.html') {
             fsx.copy(path.join(root, stat.name), path.join(outputDir, stat.name), { replace: true });
+        } else if(stat.name === 'index.md') {
+            fsx.copy(path.join(root, stat.name), path.join(outputDir, stat.name), { replace: true });
         } else if(stat.name !== 'docs.yml') {
             fsx.copy(path.join(root, stat.name), path.join(destinationFolder, stat.name));
         }
