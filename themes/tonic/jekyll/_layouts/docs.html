@@ -9,9 +9,11 @@ layout: docs-default
 
       <div class="unit five-sixths">
         <article>
+            {% if page.repo_path %}
             <div class="improve right hide-on-mobiles">
                 <a href="https://github.com/{{ site.repository }}/edit/master{{ page.repo_path }}"><i class="fa fa-pencil"></i>&nbsp;Edit</a>
             </div>
+            {% endif %}
           <h1>{{ page.title }}</h1>
           {{ content }}
           {% include section_nav.html %}
