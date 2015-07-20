@@ -7,9 +7,9 @@
     </optgroup>
     {% endfor %}
     <optgroup label="Developer guide">
+      <option value="{{ site.baseurl }}/dev/">Development</option>
       <option value="{{ "/api/" | prepend: site.baseurl }}">API</option>
       <option value="{{ "/source/" | prepend: site.baseurl | append: site.sourceURL }}">Source</option>
-      <option value="{{ site.baseurl }}/dev/">Development</option>
     </optgroup>
   </select>
 </div>

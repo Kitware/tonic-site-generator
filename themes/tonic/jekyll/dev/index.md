@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 ---
 
 <h2>Licensing</h2>
