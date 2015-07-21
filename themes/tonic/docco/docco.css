@@ -283,5 +283,6 @@ pre .hljs-tex .hljs-formula {
   border: none;
   padding: 0;
   font-size: 1em;
-  width: 98%;
+  width: -webkit-calc(98% - (30px));
+  width: calc(98% - (30px));
 }
