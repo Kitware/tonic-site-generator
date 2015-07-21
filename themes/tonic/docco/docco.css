@@ -273,3 +273,12 @@ pre .hljs-chunk {
 pre .hljs-tex .hljs-formula {
   opacity: 0.5;
 }
+
+
+.highlight {
+  background-color: none;
+  border-radius: 0px;
+  border: none;
+  padding: 0;
+  font-size: 1em;
+}
