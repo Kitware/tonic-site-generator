@@ -299,7 +299,6 @@ h5 > code,
   background-color: $grey-color-light;
   color: $grey-color-dark;
   border-radius: 5px;
-  border: 1px solid $grey-color;
   padding: 0 0.25em;
   font-size: 0.8em;
 }
@@ -313,7 +312,8 @@ h5 > code,
 .highlight {
   margin: 1em 0;
   padding: 10px 0;
-  width: 99%;
+  width: 98%;
+  background: #f8f8f8;
   overflow: auto;
 }
 
