@@ -74,6 +74,7 @@ html {
     overflow-y: scroll; /* 2 */
     -webkit-text-size-adjust: 100%; /* 3 */
     -ms-text-size-adjust: 100%; /* 3 */
+    height: 100%;
 }
 
 /*
@@ -82,6 +83,7 @@ html {
 
 body {
     margin: 0;
+    height: 100%;
 }
 
 /*
@@ -495,6 +497,7 @@ hr {
 
 #wrapper {
     position: relative;
+    min-height: 98%;
 }
 
 #topnav{
