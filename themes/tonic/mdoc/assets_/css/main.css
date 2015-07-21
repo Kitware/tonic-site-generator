@@ -497,7 +497,8 @@ hr {
 
 #wrapper {
     position: relative;
-    min-height: 98%;
+    min-height: -webkit-calc(98% - (56px));
+    min-height: calc(98% - 56px);
 }
 
 #topnav{
