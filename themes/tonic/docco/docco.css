@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
   h2 {
     font-size: 1.26em;
   }
-  
+
 a {
   color: #000;
 }
@@ -86,7 +86,7 @@ pre, tt, code {
   overflow: hidden;
 }
   .page {
-    width: 640px;
+    width: 80%;
     padding: 30px;
     margin: 30px;
     background: #fff;
