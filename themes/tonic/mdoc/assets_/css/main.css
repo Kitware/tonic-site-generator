@@ -528,7 +528,7 @@ hr {
 }
 
 #sidebar {
-    width: 250px;
+    width: 300px;
     position: absolute;
     overflow-y: auto;
     overflow-x: hidden;
@@ -624,7 +624,7 @@ hr {
 #content {
     max-width:700px;
     margin:0 auto;
-    padding:1em 2em 5em 280px;
+    padding:1em 2em 5em 330px;
 }
 
 .h2-mod {
