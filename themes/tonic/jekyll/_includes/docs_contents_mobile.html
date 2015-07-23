@@ -9,7 +9,9 @@
     <optgroup label="Developer guide">
       <option value="{{ site.baseurl }}/dev/">Development</option>
       <option value="{{ "/api/" | prepend: site.baseurl }}">API</option>
+      {% if site.noSource == nil %}
       <option value="{{ "/source/" | prepend: site.baseurl | append: site.sourceURL }}">Source</option>
+      {% endif %}
     </optgroup>
   </select>
 </div>
