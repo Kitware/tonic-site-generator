@@ -7,7 +7,9 @@
     <h4>Developer guide</h4>
     <ul>
       <li><a class="page-link" href="{{ site.baseurl }}/dev/">Development</a></li>
+      {% if site.noApi == nil %}
       <li><a class="page-link" href="{{ "/api/" | prepend: site.baseurl }}">API</a></li>
+      {% endif %}
       {% if site.noSource == nil %}
       <li><a class="page-link" href="{{ "/source/" | prepend: site.baseurl | append: site.sourceURL }}">Source</a></li>
       {% endif %}

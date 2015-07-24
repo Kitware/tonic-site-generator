@@ -8,7 +8,9 @@
     {% endfor %}
     <optgroup label="Developer guide">
       <option value="{{ site.baseurl }}/dev/">Development</option>
+      {% if site.noApi == nil %}
       <option value="{{ "/api/" | prepend: site.baseurl }}">API</option>
+      {% endif %}
       {% if site.noSource == nil %}
       <option value="{{ "/source/" | prepend: site.baseurl | append: site.sourceURL }}">Source</option>
       {% endif %}
