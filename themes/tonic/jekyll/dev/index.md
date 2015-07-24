@@ -21,6 +21,9 @@ $ npm install
 
 <div id='issue-content'></div>
 
+<h2>Status</h2>
+[![Build Status](https://travis-ci.org/{{ site.repository }}.svg)](https://travis-ci.org/{{ site.repository }})
+
 <script type="text/javascript">
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function()
