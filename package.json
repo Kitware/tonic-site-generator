@@ -21,8 +21,8 @@
   "scripts": {
     "www": "tonic-site-generator site.config.json",
     "www:http": "tonic-site-generator site.config.json --local-test && serve docs/www",
-    "test:basic": "tonic-site-generator examples/basic/tonic-site.json",
-    "posttest:basic": "serve ./examples/basic/www-build"
+    "test": "tonic-site-generator examples/basic/tonic-site.json",
+    "posttest": "serve ./examples/basic/www-build"
   },
   "bin": {
     "tonic-site-generator": "./bin/tonic-site-generator-cli.js"

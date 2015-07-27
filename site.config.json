@@ -10,15 +10,16 @@
     "ctx"   : {
         "title": "Tonic Site Generator",
         "vision": "Automagic Site Generation",
-        "description": "Automating the generation of Web Project sites with comprehensive documentation.",
+        "description": "The Tonic Site Generator let you automate the generation of your Web Project site with comprehensive documentation.",
         "details": "",
         "license": "BSD 3 Clause Open Source",
         "company": "Kitware, Inc.",
         "companyURL": "http://www.kitware.com",
         "baseurl" : "/tonic-site-generator",
         "url" : "",
-        "repository": "Kitware/tonic-site-generator/",
+        "repository": "Kitware/tonic-site-generator",
         "timezone": "America/Denver",
-        "project": "tonic-site-generator"
+        "project": "tonic-site-generator",
+        "noTravis": "there is no travis build for this"
     }
 }
