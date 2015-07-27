@@ -1,4 +1,4 @@
-re---
+---
 layout: docs
 ---
 
@@ -24,7 +24,7 @@ $ npm install
 <h2>Status</h2>
 [![Build Status](https://travis-ci.org/{{ site.repository }}.svg)](https://travis-ci.org/{{ site.repository }})
 [![Dependency Status](https://david-dm.org/{{ site.repository }}.svg)](https://david-dm.org/{{ site.repository }})
-{% if site.status.stability %} [![stability: done](https://img.shields.io/badge/stability-{{site.status.stability}}-green.svg)](#) {% endif %}
+{% for item in site.status %} [![{{ item.subject }}: {{ item.status }}](https://img.shields.io/badge/{{ item.subject }}-{{ item.status }}-{{ item.color }}.svg)](#) {% endfor %}
 
 <script type="text/javascript">
     var xmlhttp = new XMLHttpRequest();

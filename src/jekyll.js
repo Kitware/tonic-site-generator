@@ -111,13 +111,39 @@ function objectToYML(obj, indent) {
     //default value for indent arguemnet, Babel does this.
     var indent = arguments.length <= 1 || arguments[1] === undefined ? "" : arguments[1],
         out = "";
+
     for (var key in obj) {
         if (isObject(obj[key])) {
-            out += indent + key + ":\n" + objectToYML(obj[key], indent + " ");
-        } else {
+            out += indent + key + ":\n" + objectToYML(obj[key], indent + "  ");
+        }
+        else if (Array.isArray(obj[key])) {
+            out += indent + key + ":\n" + arrayToYML(obj[key], indent + "  ");
+        }
+        else {
             out += indent + key + ": " + obj[key] + '\n';
         }
     }
+    return out;
+}
+
+function arrayToYML(arr, indent) {
+    var indent = arguments.length <= 1 || arguments[1] === undefined ? "" : arguments[1],
+        out = "";
+
+    arr.forEach(function(el) {
+        if (isObject(el)) {
+            var firstKey = Object.keys(el)[0]
+            out += indent + "- " + firstKey + ": " + el[firstKey] + "\n";
+            delete el[firstKey];
+            out += objectToYML(el, indent + "  ");
+        }
+        else if (Array.isArray(el)) {
+            out += indent + arrayToYML(el);
+        }
+        else {
+            out += indent + "- " + el + "\n";
+        }
+    });
     return out;
 }
 
