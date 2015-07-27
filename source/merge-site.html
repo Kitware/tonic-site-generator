@@ -108,14 +108,14 @@
     path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>),
     outputDir, logoSrc, configObj;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configure</span><span class="hljs-params">(baseDir, config)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configure</span>(<span class="hljs-params">baseDir, config</span>) </span>{
     outputDir = path.join(baseDir, config.output);
     logoSrc = path.join(baseDir, config.icon);
     configObj = config;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mergeJekyll</span><span class="hljs-params">(next)</span> </span>{
-    fsx.copyRecursive( outputDir + <span class="hljs-string">'/tmp/_site'</span>, outputDir, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mergeJekyll</span>(<span class="hljs-params">next</span>) </span>{
+    fsx.copyRecursive( outputDir + <span class="hljs-string">'/tmp/_site'</span>, outputDir, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
         <span class="hljs-keyword">if</span> (err) {
           <span class="hljs-keyword">throw</span> err;
         }
@@ -128,9 +128,9 @@
     });
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addLogo</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addLogo</span>(<span class="hljs-params">next</span>) </span>{
     fsx.mkdirpSync(outputDir + <span class="hljs-string">'/img'</span>);
-    fsx.copy(logoSrc, outputDir+<span class="hljs-string">'/img/logo.png'</span>, { replace: <span class="hljs-literal">true</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span></span>{
+    fsx.copy(logoSrc, outputDir+<span class="hljs-string">'/img/logo.png'</span>, { replace: <span class="hljs-literal">true</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
         <span class="hljs-keyword">if</span> (err) {
             <span class="hljs-keyword">throw</span> err;
         }
@@ -141,7 +141,7 @@
     });
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gitDir</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">gitDir</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">if</span>(configObj.gitdir) {
         <span class="hljs-keyword">var</span> fd = fs.openSync(outputDir + <span class="hljs-string">'/.git'</span>, <span class="hljs-string">'w'</span>);
         fs.writeSync(fd, <span class="hljs-string">"gitdir: "</span> + configObj.gitdir + <span class="hljs-string">"\n"</span>);

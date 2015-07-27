@@ -111,14 +111,14 @@
     themePath, outputDir, srcDir, configObj;
 
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configure</span><span class="hljs-params">(baseDir, config)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configure</span>(<span class="hljs-params">baseDir, config</span>) </span>{
     configObj = config;
     themePath = __dirname + <span class="hljs-string">'/../themes/'</span> + config.theme + <span class="hljs-string">'/docco'</span>;
     outputDir = path.join(baseDir, config.output, <span class="hljs-string">'source'</span>);
     srcDir = path.join(baseDir, config.src);
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">applyTemplate</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">applyTemplate</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">var</span> handleBarTemplateFile = path.normalize(themePath + <span class="hljs-string">'/docco.hbs'</span>);
     <span class="hljs-keyword">if</span>(fs.existsSync(handleBarTemplateFile)) {</pre></div>
         
@@ -136,7 +136,7 @@
     next();
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">run</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">run</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"docco tasks:"</span>);
     <span class="hljs-keyword">var</span> walker = fsx.walk(srcDir),
         files = [],
@@ -147,18 +147,18 @@
         <p>Unbind console.log();</p>
 
         
-          <div class='highlight'><pre>    <span class="hljs-built_in">console</span>.log = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{};</pre></div>
+          <div class='highlight'><pre>    <span class="hljs-built_in">console</span>.log = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{};</pre></div>
         
       
         
         <p>file, files, directory, directories </p>
 
         
-          <div class='highlight'><pre>    walker.on(<span class="hljs-string">"file"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(root, stat, next)</span> </span>{
+          <div class='highlight'><pre>    walker.on(<span class="hljs-string">"file"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">root, stat, next</span>) </span>{
         files.push(path.join(root, stat.name));
         next();
     });
-    walker.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    walker.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
         files.sort();</pre></div>
         
       
@@ -181,7 +181,7 @@
             marked      : <span class="hljs-literal">null</span>,
             args        : files
         }, 
-        <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> </span>{</pre></div>
+        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{</pre></div>
         
       
         

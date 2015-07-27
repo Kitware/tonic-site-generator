@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
   h2 {
     font-size: 1.26em;
   }
-  
+
 a {
   color: #000;
 }
@@ -54,13 +54,15 @@ pre, tt, code {
 }
   .page pre {
     margin: 0;
-    width: 608px;
+    width: 98%;
     padding: 10px 15px;
     background: #fcfcfc;
     -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
     box-shadow:         inset 0 0 10px rgba(0,0,0,0.1);
     overflow-x: auto;
+    width: -webkit-calc(98% - (30px));
+    width: calc(98% - (30px));
   }
     .page pre code {
       border: 0;
@@ -79,14 +81,14 @@ pre, tt, code {
 /*--------------------- Layout ----------------------------*/
 
 .container {
-  width: 760px;
+  width: 80%;
   margin: 0 auto;
   background: #fff;
   background: rgba(255,255,255, 0.4);
   overflow: hidden;
 }
   .page {
-    width: 640px;
+    width: 98%;
     padding: 30px;
     margin: 30px;
     background: #fff;
@@ -272,4 +274,15 @@ pre .hljs-chunk {
 
 pre .hljs-tex .hljs-formula {
   opacity: 0.5;
+}
+
+
+.highlight {
+  background-color: none;
+  border-radius: 0px;
+  border: none;
+  padding: 0;
+  font-size: 1em;
+  width: -webkit-calc(98% - (30px));
+  width: calc(98% - (30px));
 }

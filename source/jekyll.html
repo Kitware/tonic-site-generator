@@ -108,27 +108,35 @@
     path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>),
     themePath, newsDir, siteDir, outputDir, configObj;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configure</span><span class="hljs-params">(baseDir, config)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">configure</span>(<span class="hljs-params">baseDir, config</span>) </span>{
     themePath = __dirname + <span class="hljs-string">'/../themes/'</span> + config.theme;
     newsDir = path.join(baseDir, config.news);
     siteDir = path.join(baseDir, config.doc);
     outputDir = path.join(baseDir, config.output, <span class="hljs-string">'tmp'</span>);
     configObj = config;
+
+    [themePath, newsDir, siteDir, outputDir].map(mkdirIfMissing);
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Jekyll tasks:"</span>);
     next();
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">end</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">end</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-built_in">console</span>.log();
     next();
 }
 
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mkdirIfMissing</span>(<span class="hljs-params">folder</span>) </span>{
+    <span class="hljs-keyword">if</span> (!fs.existsSync(folder)){
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Folder: '</span> + folder +<span class="hljs-string">' does not exist, creating it...'</span>);
+        fs.mkdirSync(folder);
+    }
+}
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllTemplate</span><span class="hljs-params">(next)</span> </span>{
-    fsx.copyRecursive(themePath + <span class="hljs-string">'/jekyll'</span>, outputDir, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span></span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllTemplate</span>(<span class="hljs-params">next</span>) </span>{
+    fsx.copyRecursive(themePath + <span class="hljs-string">'/jekyll'</span>, outputDir, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
         <span class="hljs-keyword">if</span> (err) {
             <span class="hljs-keyword">throw</span> err;
         }
@@ -137,10 +145,10 @@
     });
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllNews</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllNews</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">var</span> destinationFolder = path.join(outputDir, <span class="hljs-string">'_posts'</span>);
     fsx.mkdirpSync(destinationFolder);
-    fsx.copyRecursive(newsDir, destinationFolder, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span></span>{
+    fsx.copyRecursive(newsDir, destinationFolder, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
         <span class="hljs-keyword">if</span> (err) {
             <span class="hljs-keyword">throw</span> err;
         }
@@ -150,10 +158,10 @@
     });
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllData</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllData</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">var</span> destinationFolder = path.join(outputDir, <span class="hljs-string">'_data'</span>);
     fsx.mkdirpSync(destinationFolder);
-    fsx.copy(siteDir + <span class="hljs-string">'/docs.yml'</span>, destinationFolder+<span class="hljs-string">'/docs.yml'</span>, { replace: <span class="hljs-literal">true</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span></span>{
+    fsx.copy(siteDir + <span class="hljs-string">'/docs.yml'</span>, destinationFolder+<span class="hljs-string">'/docs.yml'</span>, { replace: <span class="hljs-literal">true</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
         <span class="hljs-keyword">if</span> (err) {
             <span class="hljs-keyword">throw</span> err;
         }
@@ -163,12 +171,14 @@
     });
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllPages</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyJekyllPages</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">var</span> destinationFolder = path.join(outputDir, <span class="hljs-string">'_docs'</span>);
     fsx.mkdirpSync(destinationFolder);
     <span class="hljs-keyword">var</span> walker = fsx.walk(siteDir);
-    walker.on(<span class="hljs-string">"file"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(root, stat, next)</span> </span>{
+    walker.on(<span class="hljs-string">"file"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">root, stat, next</span>) </span>{
         <span class="hljs-keyword">if</span>(stat.name === <span class="hljs-string">'index.html'</span>) {
+            fsx.copy(path.join(root, stat.name), path.join(outputDir, stat.name), { replace: <span class="hljs-literal">true</span> });
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(stat.name === <span class="hljs-string">'index.md'</span>) {
             fsx.copy(path.join(root, stat.name), path.join(outputDir, stat.name), { replace: <span class="hljs-literal">true</span> });
         } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(stat.name !== <span class="hljs-string">'docs.yml'</span>) {
             fsx.copy(path.join(root, stat.name), path.join(destinationFolder, stat.name));
@@ -181,14 +191,14 @@
         
           <div class='highlight'><pre>        next();
     });
-    walker.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    walker.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">" - Pages"</span>);
         next();
     });
 }
 
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateConfigYML</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateConfigYML</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">var</span> buffer = [
         <span class="hljs-string">"# Site settings"</span>,
         <span class="hljs-string">"logo: img/logo.png"</span>,
@@ -196,21 +206,77 @@
         <span class="hljs-string">"  docs:"</span>,
         <span class="hljs-string">"    output: true"</span>,
         <span class="hljs-string">"markdown: redcarpet"</span>
-    ];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> configObj.ctx) {
-        buffer.push(key + <span class="hljs-string">": "</span> + configObj.ctx[key]);
-    }
+    ].join(<span class="hljs-string">"\n"</span>) + <span class="hljs-string">"\n"</span>;
+    buffer += objectToYML(configObj.ctx)
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">" - Generate config.yml"</span>);
 
     <span class="hljs-keyword">var</span> fd = fs.openSync(outputDir + <span class="hljs-string">'/_config.yml'</span>, <span class="hljs-string">'w'</span>);
-    fs.writeSync(fd, buffer.join(<span class="hljs-string">'\n'</span>));
+    fs.writeSync(fd, buffer);
     fs.closeSync(fd);
     next();
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runJekyll</span><span class="hljs-params">(next)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">objectToYML</span>(<span class="hljs-params">obj, indent</span>) </span>{</pre></div>
+        
+      
+        
+        <p>default value for indent arguemnet, Babel does this.</p>
+
+        
+          <div class='highlight'><pre>    <span class="hljs-keyword">var</span> indent = <span class="hljs-built_in">arguments</span>.length &lt;= <span class="hljs-number">1</span> || <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] === <span class="hljs-literal">undefined</span> ? <span class="hljs-string">""</span> : <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>],
+        out = <span class="hljs-string">""</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> obj) {
+        <span class="hljs-keyword">if</span> (isObject(obj[key])) {
+            out += indent + key + <span class="hljs-string">":\n"</span> + objectToYML(obj[key], indent + <span class="hljs-string">"  "</span>);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Array</span>.isArray(obj[key])) {
+            out += indent + key + <span class="hljs-string">":\n"</span> + arrayToYML(obj[key], indent + <span class="hljs-string">"  "</span>);
+        }
+        <span class="hljs-keyword">else</span> {
+            out += indent + key + <span class="hljs-string">": "</span> + obj[key] + <span class="hljs-string">'\n'</span>;
+        }
+    }
+    <span class="hljs-keyword">return</span> out;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arrayToYML</span>(<span class="hljs-params">arr, indent</span>) </span>{
+    <span class="hljs-keyword">var</span> indent = <span class="hljs-built_in">arguments</span>.length &lt;= <span class="hljs-number">1</span> || <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] === <span class="hljs-literal">undefined</span> ? <span class="hljs-string">""</span> : <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>],
+        out = <span class="hljs-string">""</span>;
+
+    arr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">el</span>) </span>{
+        <span class="hljs-keyword">if</span> (isObject(el)) {
+            <span class="hljs-keyword">var</span> firstKey = <span class="hljs-built_in">Object</span>.keys(el)[<span class="hljs-number">0</span>]
+            out += indent + <span class="hljs-string">"- "</span> + firstKey + <span class="hljs-string">": "</span> + el[firstKey] + <span class="hljs-string">"\n"</span>;
+            <span class="hljs-keyword">delete</span> el[firstKey];
+            out += objectToYML(el, indent + <span class="hljs-string">"  "</span>);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Array</span>.isArray(el)) {
+            out += indent + arrayToYML(el);
+        }
+        <span class="hljs-keyword">else</span> {
+            out += indent + <span class="hljs-string">"- "</span> + el + <span class="hljs-string">"\n"</span>;
+        }
+    });
+    <span class="hljs-keyword">return</span> out;
+}</pre></div>
+        
+      
+        
+        <p>from github.com/tjmehta/101/blob/master/is-object.js</p>
+
+        
+          <div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isObject</span> (<span class="hljs-params">val</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> val === <span class="hljs-string">'object'</span> &amp;&amp;
+    !<span class="hljs-built_in">Array</span>.isArray(val) &amp;&amp;
+    !(val <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">RegExp</span>) &amp;&amp;
+    !(val <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">String</span>) &amp;&amp;
+    !(val <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runJekyll</span>(<span class="hljs-params">next</span>) </span>{
     <span class="hljs-keyword">var</span> proc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'child_process'</span>).spawn(<span class="hljs-string">'jekyll'</span>, [ <span class="hljs-string">'build'</span>, <span class="hljs-string">'--source'</span>, outputDir, <span class="hljs-string">'--destination'</span>, outputDir + <span class="hljs-string">'/_site'</span> ], {});
-    proc.on(<span class="hljs-string">'exit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(code, signal)</span> </span>{
+    proc.on(<span class="hljs-string">'exit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">code, signal</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">" - Site Generation"</span>);
         next();
     });
