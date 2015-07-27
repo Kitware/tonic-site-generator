@@ -23,6 +23,7 @@ $ npm install
 
 <h2>Status</h2>
 [![Build Status](https://travis-ci.org/{{ site.repository }}.svg)](https://travis-ci.org/{{ site.repository }})
+[![Dependency Status](https://david-dm.org/{{ site.repository }}.svg)](https://david-dm.org/{{ site.repository }})
 
 <script type="text/javascript">
     var xmlhttp = new XMLHttpRequest();
