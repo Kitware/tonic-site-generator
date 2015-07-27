@@ -97,16 +97,37 @@ function generateConfigYML(next) {
         "  docs:",
         "    output: true",
         "markdown: redcarpet"
-    ];
-    for(var key in configObj.ctx) {
-        buffer.push(key + ": " + configObj.ctx[key]);
-    }
+    ].join("\n") + "\n";
+    buffer += objectToYML(configObj.ctx)
     console.log(" - Generate config.yml");
 
     var fd = fs.openSync(outputDir + '/_config.yml', 'w');
-    fs.writeSync(fd, buffer.join('\n'));
+    fs.writeSync(fd, buffer);
     fs.closeSync(fd);
     next();
+}
+
+function objectToYML(obj, indent) {
+    //default value for indent arguemnet, Babel does this.
+    var indent = arguments.length <= 1 || arguments[1] === undefined ? "" : arguments[1],
+        out = "";
+    for (var key in obj) {
+        if (isObject(obj[key])) {
+            out += indent + key + ":\n" + objectToYML(obj[key], indent + " ");
+        } else {
+            out += indent + key + ": " + obj[key] + '\n';
+        }
+    }
+    return out;
+}
+
+//from github.com/tjmehta/101/blob/master/is-object.js
+function isObject (val) {
+  return typeof val === 'object' &&
+    !Array.isArray(val) &&
+    !(val instanceof RegExp) &&
+    !(val instanceof String) &&
+    !(val instanceof Number);
 }
 
 function runJekyll(next) {
