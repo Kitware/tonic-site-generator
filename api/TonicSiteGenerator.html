@@ -68,14 +68,14 @@
 <h1>Tonic Site Generator</h1>
 
 <p>The tonic site generator is meant to be use as a command line tool for
-generating the WebSite of your Web project.</p>
+generating the website of your web project.</p>
 
-<p>The <strong>tonic-site-generator</strong> NodeJS executable expect a single argument which
+<p>The <strong>tonic-site-generator</strong> NodeJS executable expects a single argument which
 is the path to a JSON configuration file listing where to find the different
-components of your WebSite.</p>
+components of your website.</p>
 
-<p>The following JSON structure is an example of what a configuration file
-could looks like:</p>
+<p>The following JSON structure is an example of what a typical
+ configuration file looks like:</p>
 
 <pre class="brush:js">
 {
@@ -112,28 +112,28 @@ could looks like:</p>
 }
 </pre>
 
-<p>The configuration file can be explained as follow where each path should be
+<p>The configuration file can be explained as follows where each path should be
 provided as relative to the configuration file.</p>
 
 <ul>
-<li><p><strong>output</strong> : Directory that will be used to generate the static Web Site.</p></li>
+<li><p><strong>output</strong> : Directory that will be used to generate the static website.</p></li>
 <li><p><strong>src</strong> : Directory that contains the source code that you want to expose
       inside the Documentation/source section.</p></li>
-<li><p><strong>api</strong> : Directory that contains Markdown file which describe your code API.
-        This will be process by mdoc where more information can be found
+<li><p><strong>api</strong> : Directory that contains Markdown files which describe your code's API.
+        This will be processed by mdoc, more information on mdoc can be found
         <a href="https://www.npmjs.com/package/mdoc">here</a>.</p></li>
-<li><p><strong>doc</strong> : Directory that contains your site home page and all the guides section.
-        This is going to be process by Jekyll down the road but beneath that
+<li><p><strong>doc</strong> : Directory that contains your site's home page and all the guides' sections.
+        This is going to be processed by Jekyll down the road but beneath that
         directory we expect to see:</p>
 
-<pre><code>    - index.html : Which will be the content of your home page.
-    - docs.yml   : Which will describe the section and groups of your guides.
-    - **/*.md    : Set of pages that will compose your guide section.
+<pre><code>    - index.html : The content of your home page.
+    - docs.yml   : Describes the sections and groups of your guides.
+    - **/*.md    : Set of pages that will compose your guides section.
 </code></pre></li>
 <li><p><strong>news</strong> : Directory that contains Jekyll posts which will be exposed as your
-         Web site news. Jekyll expect to find within that directory a set of
-         file with the following pattern: "2015-04-10-your-title-goes-here.md"</p></li>
-<li><p><strong>theme</strong> : The name of the Web Site theme that you want to use. Currently we
+         website news. Jekyll expect to find within that directory a set of
+         file with the following pattern: "YYYY-MM-DD-your-title-goes-here.md"</p></li>
+<li><p><strong>theme</strong> : The name of the website's theme that you want to use. Currently we
           only have <strong>tonic</strong>.</p></li>
 <li><p><strong>icon</strong> : The file path to an image that should be use as the project icon.</p></li>
 <li><p><strong>gitdir</strong> : OPTIONAL configuration that is useful when the <strong>output</strong> directory
@@ -141,7 +141,7 @@ provided as relative to the configuration file.</p>
            a ".git" file within the output directory using the providing path
            for its content.</p></li>
 <li><p><strong>ctx</strong> : Is used across all the templates to provide a consistent set of
-        informations. The mandatory set of property will depend on the Theme
+        information. The mandatory set of properties will depend on the theme
         used.</p>
 
 <ul><li><strong>noApi</strong> : Set this property to any value to remove the API link from right sidebar.</li>
@@ -158,11 +158,11 @@ provided as relative to the configuration file.</p>
 
 <pre><code>       [
         {
-            "subject": "API_Stability",
+            "subject": "api_stability",
             "status": "alpha|beta|fair|complete",
             "color": "red|orange|green|brightgreen"
         },{
-            "subject": "Feature_Complete",
+            "subject": "feature_complete",
             "status": "★★★☆☆",
             "color": "green"
         }
@@ -178,23 +178,23 @@ provided as relative to the configuration file.</p>
 
 <h2>tonic theme <a href="#tonic theme" id="tonic theme" class="deep-link">#</a></h2>
 
-<p>The Tonic theme is made to produce a standardize web site with 4 sections:</p>
+<p>The Tonic theme is made to produce a standardized website with four sections:</p>
 
 <ul>
-<li>An home page</li>
-<li>A Documentation page with 3 sub-sections (Guides, API and Source)</li>
-<li>A News section</li>
-<li>A Development section</li>
+<li>Home page</li>
+<li>Documentation page with three sub-sections (Guides, API and Source)</li>
+<li>News section</li>
+<li>Development section</li>
 </ul>
 
 <p>The mandatory properties in the <strong>ctx</strong> are:</p>
 
 <ul>
-<li><strong>title</strong>: Web site title (Usually project name)</li>
+<li><strong>title</strong>: website title (Usually project name)</li>
 <li><strong>email</strong>: email to show on the home page,</li>
 <li><strong>baseurl</strong>: Base url that will be used when your site will be deployed. On Github
        pages it should be something like /{repo-name}</li>
-<li><strong>repository</strong>: The user to the Github URL.</li>
+<li><strong>repository</strong>: The username and repo name in the Github URL, no trailing slash.</li>
 </ul>
         </div>
         <script src="assets_/js/lib/jquery.js"></script>
