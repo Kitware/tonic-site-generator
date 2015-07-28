@@ -1,14 +1,14 @@
 # Tonic Site Generator
 
 The tonic site generator is meant to be use as a command line tool for
-generating the WebSite of your Web project.
+generating the website of your web project.
 
-The **tonic-site-generator** NodeJS executable expect a single argument which
+The **tonic-site-generator** NodeJS executable expects a single argument which
 is the path to a JSON configuration file listing where to find the different
-components of your WebSite.
+components of your website.
 
-The following JSON structure is an example of what a configuration file
-could looks like:
+The following JSON structure is an example of what a typical
+ configuration file looks like:
 
 ```js
 {
@@ -44,31 +44,31 @@ could looks like:
     }
 }
 ```
-The configuration file can be explained as follow where each path should be
+The configuration file can be explained as follows where each path should be
 provided as relative to the configuration file.
 
-- **output** : Directory that will be used to generate the static Web Site.
+- **output** : Directory that will be used to generate the static website.
 
 - **src** : Directory that contains the source code that you want to expose
           inside the Documentation/source section.
 
-- **api** : Directory that contains Markdown file which describe your code API.
-            This will be process by mdoc where more information can be found
+- **api** : Directory that contains Markdown files which describe your code's API.
+            This will be processed by mdoc, more information on mdoc can be found
             [here](https://www.npmjs.com/package/mdoc).
 
-- **doc** : Directory that contains your site home page and all the guides section.
-            This is going to be process by Jekyll down the road but beneath that
+- **doc** : Directory that contains your site's home page and all the guides' sections.
+            This is going to be processed by Jekyll down the road but beneath that
             directory we expect to see:
 
-            - index.html : Which will be the content of your home page.
-            - docs.yml   : Which will describe the section and groups of your guides.
-            - **/*.md    : Set of pages that will compose your guide section.
+            - index.html : The content of your home page.
+            - docs.yml   : Describes the sections and groups of your guides.
+            - **/*.md    : Set of pages that will compose your guides section.
 
 - **news** : Directory that contains Jekyll posts which will be exposed as your
-             Web site news. Jekyll expect to find within that directory a set of
-             file with the following pattern: "2015-04-10-your-title-goes-here.md"
+             website news. Jekyll expect to find within that directory a set of
+             file with the following pattern: "YYYY-MM-DD-your-title-goes-here.md"
 
-- **theme** : The name of the Web Site theme that you want to use. Currently we
+- **theme** : The name of the website's theme that you want to use. Currently we
               only have **tonic**.
 
 - **icon** : The file path to an image that should be use as the project icon.
@@ -79,7 +79,7 @@ provided as relative to the configuration file.
                for its content.
 
 - **ctx** : Is used across all the templates to provide a consistent set of
-            informations. The mandatory set of property will depend on the Theme
+            information. The mandatory set of properties will depend on the theme
             used.
     - **noApi** : Set this property to any value to remove the API link from right sidebar.
     - **noSource** : Set this property to any value to remove link the Source link from right sidebar.
@@ -95,11 +95,11 @@ provided as relative to the configuration file.
 
                    [
                     {
-                        "subject": "API_Stability",
+                        "subject": "api_stability",
                         "status": "alpha|beta|fair|complete",
                         "color": "red|orange|green|brightgreen"
                     },{
-                        "subject": "Feature_Complete",
+                        "subject": "feature_complete",
                         "status": "★★★☆☆",
                         "color": "green"
                     }
@@ -107,17 +107,17 @@ provided as relative to the configuration file.
 
 ## tonic theme
 
-The Tonic theme is made to produce a standardize web site with 4 sections:
+The Tonic theme is made to produce a standardized website with four sections:
 
-- An home page
-- A Documentation page with 3 sub-sections (Guides, API and Source)
-- A News section
-- A Development section
+- Home page
+- Documentation page with three sub-sections (Guides, API and Source)
+- News section
+- Development section
 
 The mandatory properties in the **ctx** are:
 
-- **title**: Web site title (Usually project name)
+- **title**: website title (Usually project name)
 - **email**: email to show on the home page,
 - **baseurl**: Base url that will be used when your site will be deployed. On Github
            pages it should be something like /{repo-name}
-- **repository**: The user to the Github URL.
+- **repository**: The username and repo name in the Github URL, no trailing slash.
