@@ -20,6 +20,7 @@
         "repository": "Kitware/tonic-site-generator",
         "timezone": "America/Denver",
         "project": "tonic-site-generator",
-        "noTravis": "there is no travis build for this"
+        "noTravis": "there is no travis build for this",
+        "devAddon": "$ npm install"
     }
 }

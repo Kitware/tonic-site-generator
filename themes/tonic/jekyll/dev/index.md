@@ -11,7 +11,7 @@ layout: docs
 {% highlight bash %}
 $ git clone git@github.com:{{site.repository}}.git
 $ cd {{site.project}}
-$ npm install
+{{ site.devAddon }}
 {% endhighlight %}
 
 <h2>

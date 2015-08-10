@@ -45,7 +45,7 @@ The following JSON structure is an example of what a typical
 }
 ```
 The configuration file can be explained as follows where each path should be
-provided as relative to the configuration file.
+provided as relative to the configuration file. __They are all required__ unless otherwise noted.
 
 - **output** : Directory that will be used to generate the static website.
 
@@ -68,10 +68,10 @@ provided as relative to the configuration file.
              website news. Jekyll expect to find within that directory a set of
              file with the following pattern: "YYYY-MM-DD-your-title-goes-here.md"
 
-- **theme** : The name of the website's theme that you want to use. Currently we
+- **theme** : Name of the website theme that you want to use. Currently we
               only have **tonic**.
 
-- **icon** : The file path to an image that should be use as the project icon.
+- **icon** : File path to an image that should be use as the project icon.
 
 - **gitdir** : OPTIONAL configuration that is useful when the **output** directory
                is meant to be a Git submodule. This property will be used to generate
@@ -117,7 +117,6 @@ The Tonic theme is made to produce a standardized website with four sections:
 The mandatory properties in the **ctx** are:
 
 - **title**: website title (Usually project name)
-- **email**: email to show on the home page,
 - **baseurl**: Base url that will be used when your site will be deployed. On Github
            pages it should be something like /{repo-name}
 - **repository**: The username and repo name in the Github URL, no trailing slash.
