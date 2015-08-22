@@ -1,7 +1,7 @@
 {
   "name": "tonic-site-generator",
   "description": "Web site generator/builder for Web projects which rely on Jekyll, mdoc and docco.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "BSD-3-Clause",
   "main": "./src/tonic-site-generator.js",
   "repository": {
