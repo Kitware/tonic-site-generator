@@ -2,3 +2,4 @@ examples/basic/www-build/
 .sass-cache
 docs/www
 node_modules/
+.npmrc
