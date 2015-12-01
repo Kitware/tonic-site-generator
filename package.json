@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "tonic-site-generator": "Kitware/tonic-site-generator",
-    "cz-conventional-changelog": "1.1.0"
+    "cz-conventional-changelog": "1.1.4"
   },
   "scripts": {
     "www": "tonic-site-generator site.config.json",
@@ -25,10 +25,10 @@
     "test": "tonic-site-generator examples/basic/tonic-site.json",
     "posttest": "serve ./examples/basic/www-build",
 
-    "commit": "git-cz",
+    "commit": "git cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
 
-    "dep:release": "npm install commitizen@1.0.4 semantic-release@4.3.5",
+    "dep:release": "npm install commitizen@2.4.6 semantic-release@4.3.5",
 
     "dep:travis" : "npm run dep:release",
     "dep:local"  : "npm run dep:release",
@@ -37,7 +37,9 @@
   "bin": {
     "tonic-site-generator": "./bin/tonic-site-generator-cli.js"
   },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
