@@ -11,15 +11,16 @@
   "dependencies": {
     "handlebars": "4.0.3",
     "docco"     : "0.7.0",
-    "mdoc"      : "0.5.0",
+    "mdoc"      : "0.5.2",
     "serve"     : "1.4.0",
     "fs.extra"  : "1.3.2"
   },
   "devDependencies": {
-    "tonic-site-generator": "Kitware/tonic-site-generator",
     "cz-conventional-changelog": "1.1.4"
   },
   "scripts": {
+    "jekyll": "sudo gem install jekyll redcarpet",
+
     "www": "tonic-site-generator site.config.json",
     "www:http": "tonic-site-generator site.config.json --local-test && serve docs/www",
     "test": "tonic-site-generator examples/basic/tonic-site.json",
